@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "accuralai-adaptive-tools"
+version = "0.2.0"
+description = "Self-improving tool ecosystem with V1 (pattern-based generation), V2 (learning-based optimization), and V3 (unified coordination)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "AccuralAI Contributors"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "accuralai-core>=0.1.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    "scikit-optimize>=0.9.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "aiosqlite>=0.19.0",
+    "anyio>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-anyio>=0.0.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+]
+
+[project.entry-points."accuralai_core.cli_commands"]
+tool_evolve = "accuralai_adaptive_tools.cli.commands:tool_evolve"
+tool_propose = "accuralai_adaptive_tools.cli.commands:tool_propose"
+tool_review = "accuralai_adaptive_tools.cli.commands:tool_review"
+tool_approve = "accuralai_adaptive_tools.cli.commands:tool_approve"
+tool_reject = "accuralai_adaptive_tools.cli.commands:tool_reject"
+tool_metrics = "accuralai_adaptive_tools.cli.commands:tool_metrics"
+tool_versions = "accuralai_adaptive_tools.cli.commands:tool_versions"
+tool_rollback = "accuralai_adaptive_tools.cli.commands:tool_rollback"
+plan_generate = "accuralai_adaptive_tools.cli.commands:plan_generate"
+plan_run = "accuralai_adaptive_tools.cli.commands:plan_run"
+plan_optimize = "accuralai_adaptive_tools.cli.commands:plan_optimize"
+plan_compare = "accuralai_adaptive_tools.cli.commands:plan_compare"
+adaptive_status = "accuralai_adaptive_tools.cli.commands:adaptive_status"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["accuralai_adaptive_tools*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+ignore = []

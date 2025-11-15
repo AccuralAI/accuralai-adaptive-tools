@@ -1,0 +1,11 @@
+2024-01-15 10:30:15 INFO: User login successful - user_id=123
+2024-01-15 10:31:22 ERROR: Database connection failed - retrying...
+2024-01-15 10:31:25 INFO: Database connection restored
+2024-01-15 10:35:10 WARN: High memory usage detected - 85%
+2024-01-15 10:40:00 INFO: Cache cleared successfully
+2024-01-15 10:45:33 ERROR: API request timeout - endpoint=/api/users
+2024-01-15 10:46:01 INFO: API request successful - endpoint=/api/users
+2024-01-15 10:50:15 INFO: User logout - user_id=123
+2024-01-15 11:00:00 INFO: Scheduled backup completed
+2024-01-15 11:15:30 WARN: Disk space low - 15% remaining
+
